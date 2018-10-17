@@ -14,6 +14,10 @@ ReactDOM.render(
 * Cac trang thai cach nhau bang dau phay ','
 */	
 
+function globalFunc(str){
+	alert(str);
+}
+
 var Content1 = React.createClass({
 	msg: function(){
 		alert('Woher kommst du');
@@ -27,6 +31,8 @@ var Content1 = React.createClass({
 				<h1 className="mauxanh" > {this.props.id} - {this.props.val} </h1>
 				<p>{this.props.children}</p>
 				<button onClick={this.msg} >Alert</button>
+				<br/><br/>
+				<button onClick={()=>{ var str = this.props.id +'-'+ this.props.val; globalFunc(str) } } >Global function</button>
 				< SubContent1 />
 			</div>
 		);
