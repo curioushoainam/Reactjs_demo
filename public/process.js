@@ -20,6 +20,28 @@ var Content1 = React.createClass({
 			<div>
 				<h2> I am a component</h2>
 				<h1 className="mauxanh" > I am the most element in the React </h1>
+				< SubContent1 />
+			</div>
+		);
+	}
+});
+
+var SubContent1 = React.createClass({
+	render: function(){
+		return(
+			<div>
+				<h4>I am the SubContent1</h4>
+				< SubSubContent1 />
+			</div>
+		);
+	}
+});
+
+var SubSubContent1 = React.createClass({
+	render: function(){
+		return(
+			<div>
+				<h6>I am the Sub-SubContent1</h6>
 			</div>
 		);
 	}
@@ -33,3 +55,4 @@ ReactDOM.render(
 
 	,document.getElementById('root1')
 );
+
