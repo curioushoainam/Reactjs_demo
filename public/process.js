@@ -19,7 +19,7 @@ var Content1 = React.createClass({
 		return (
 			<div>
 				<h2> I am a component</h2>
-				<h1 className="mauxanh" > I am the most element in the React </h1>
+				<h1 className="mauxanh" > {this.props.id} - {this.props.val} </h1>
 				< SubContent1 />
 			</div>
 		);
@@ -49,8 +49,8 @@ var SubSubContent1 = React.createClass({
 
 ReactDOM.render( 
 	<div>
-		< Content1 />
-		< Content1 />
+		< Content1 id="001" val="1988"/>
+		< Content1 id="002" val="1982"/>
 	</div>
 
 	,document.getElementById('root1')
