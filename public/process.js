@@ -15,12 +15,18 @@ ReactDOM.render(
 */	
 
 var Content1 = React.createClass({
+	msg: function(){
+		alert('Woher kommst du');
+		alert(this.props.children);
+	},
+
 	render: function(){
 		return (
 			<div>
 				<h2> I am a component</h2>
 				<h1 className="mauxanh" > {this.props.id} - {this.props.val} </h1>
 				<p>{this.props.children}</p>
+				<button onClick={this.msg} >Alert</button>
 				< SubContent1 />
 			</div>
 		);
