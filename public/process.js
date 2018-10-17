@@ -20,6 +20,7 @@ var Content1 = React.createClass({
 			<div>
 				<h2> I am a component</h2>
 				<h1 className="mauxanh" > {this.props.id} - {this.props.val} </h1>
+				<p>{this.props.children}</p>
 				< SubContent1 />
 			</div>
 		);
@@ -49,8 +50,8 @@ var SubSubContent1 = React.createClass({
 
 ReactDOM.render( 
 	<div>
-		< Content1 id="001" val="1988"/>
-		< Content1 id="002" val="1982"/>
+		< Content1 id="001" val="1988"> Younger </Content1>
+		< Content1 id="002" val="1982"> Older </Content1>
 	</div>
 
 	,document.getElementById('root1')
