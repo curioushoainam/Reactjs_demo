@@ -6,13 +6,45 @@ var Note = React.createClass({
 		});
 	},
 
+	edit(){
+		this.setState({onEdit: true});
+	},
+
+	cancel(){
+		this.setState({onEdit: false});
+	},
+
+	save(){
+		var note = this;
+		$.post("/update",{id: this.props.id, note: this.refs.txt.value},function(data){
+			list.setState({arr: data});		
+			note.setState({onEdit: false});	
+		});		
+	},
+
+	getInitialState(){
+		return {onEdit: false};
+	},
+
 	render: function(){
-		return(
-			<div className="div-note" >
-				<p>{this.props.children}</p>
-				<button onClick={this.delete}>Delete</button>
-			</div>
-		);
+		if(this.state.onEdit){
+			return(
+				<div className="div-note" >
+					<p><input defaultValue={this.props.children} ref='txt' placeholder="Enter new note!"/></p>
+					<button onClick={this.cancel}>Cancel</button>
+					<button onClick={this.save}>Save</button>
+				</div>
+			);
+		} else {
+			return(
+				<div className="div-note" >
+					<p>{this.props.children}</p>
+					<button onClick={this.delete}>Delete</button>
+					<button onClick={this.edit}>Edit</button>
+				</div>
+			);
+		}
+		
 	}
 });
 

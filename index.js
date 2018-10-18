@@ -28,3 +28,9 @@ app.post("/delNote", parser, function(req, res){
 	database.splice(id,1);
 	res.send(database);
 });
+
+app.post("/update", parser, function(req, res){
+	var id =  req.body.id;
+	database[id] = req.body.note;
+	res.send(database);
+});
