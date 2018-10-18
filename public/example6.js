@@ -12,7 +12,7 @@ var Note = React.createClass({
 var List = React.createClass({
 	getInitialState(){
 		list = this;
-		return {arr: ["Guten Morgen","Guten Tag","Guten Abend","Gute Natch"]};
+		return {arr:[]};
 	},
 	
 	add(){
@@ -31,6 +31,13 @@ var List = React.createClass({
 			}
 			</div>
 		);
+	},
+
+	componentDidMount(){
+		var that = this;
+		$.post("/getNote", function(data){
+			that.setState({arr : data});
+		});
 	}
 });
 
