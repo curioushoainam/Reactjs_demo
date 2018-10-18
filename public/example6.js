@@ -1,9 +1,16 @@
 var list;
 var Note = React.createClass({
+	delete(){
+		$.post("/delNote",{id: this.props.id},function(data){
+			list.setState({arr: data});
+		});
+	},
+
 	render: function(){
 		return(
 			<div className="div-note" >
-				{this.props.children}
+				<p>{this.props.children}</p>
+				<button onClick={this.delete}>Delete</button>
 			</div>
 		);
 	}
@@ -26,7 +33,7 @@ var List = React.createClass({
 				<div> <button onClick={this.add}>Add</button> </div>
 			{
 				this.state.arr.map(function(note, index){
-					return <Note key={index} >{note}</Note>
+					return <Note key={index} id={index} >{note}</Note>
 				})
 			}
 			</div>

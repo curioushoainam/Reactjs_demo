@@ -21,4 +21,10 @@ app.post("/addNote", parser, function(req, res){
 	var newNote = req.body.note;
 	database.push(newNote);
 	res.send(database);
-})
+});
+
+app.post("/delNote", parser, function(req, res){
+	var id = req.body.id;
+	database.splice(id,1);
+	res.send(database);
+});
