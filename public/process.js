@@ -23,6 +23,14 @@ var Content1 = React.createClass({
 		alert('Woher kommst du');
 		alert(this.props.children);
 	},
+	
+	addVal(){
+		this.setState({total : this.state.total + 1});
+	},
+
+	getInitialState(){
+		return {total : 0};
+	},
 
 	render: function(){
 		return (
@@ -33,6 +41,9 @@ var Content1 = React.createClass({
 				<button onClick={this.msg} >Alert</button>
 				<br/><br/>
 				<button onClick={()=>{ var str = this.props.id +'-'+ this.props.val; globalFunc(str) } } >Global function</button>
+				<br/><br/>
+				<div>Total is : {this.state.total}</div>
+				<button onClick={this.addVal} > ADD </button>
 				< SubContent1 />
 			</div>
 		);
