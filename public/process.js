@@ -72,8 +72,34 @@ var SubSubContent1 = React.createClass({
 	}
 });
 
+var InputTags = React.createClass({
+	show(){
+		var text = this.refs.inp.value;
+		alert(text);
+		var option = this.refs.sl.value;
+		alert(option);
+	},
+
+	render: function(){
+		return (
+			<div>
+				<input type="text" ref="inp" /><br/>		
+				<select ref="sl">
+					<option value="AAA">3A</option>
+					<option value="BBB">3B</option>
+					<option value="CCC">3C</option>
+				</select>
+				<br/><br/>
+				<button onClick={this.show}>Display</button>
+			</div>
+		);
+	}
+});
+
+
 ReactDOM.render( 
 	<div>
+		< InputTags />
 		< Content1 id="001" val="1988" total="6" > Younger </Content1>
 		< Content1 id="002" val="1982" total="0" > Older </Content1>
 	</div>
