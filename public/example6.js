@@ -43,8 +43,9 @@ var List = React.createClass({
 
 var InputDiv = React.createClass({
 	send(){
-		list.state.arr.push(this.refs.txt.value);
-		list.setState(list.state);
+		$.post("addNote",{note: this.refs.txt.value},function(data){
+			list.setState({arr: data});
+		});
 		ReactDOM.unmountComponentAtNode(document.getElementById('addDiv'));
 	},
 	render: function(){
