@@ -24,12 +24,13 @@ var Content1 = React.createClass({
 		alert(this.props.children);
 	},
 	
-	addVal(){
-		this.setState({total : this.state.total + 1});
+	addVal(){		
+		this.state.total = parseInt(this.state.total) + 1;
+		this.setState(this.state);
 	},
 
 	getInitialState(){
-		return {total : 0};
+		return {total : this.props.total};
 	},
 
 	render: function(){
@@ -73,8 +74,8 @@ var SubSubContent1 = React.createClass({
 
 ReactDOM.render( 
 	<div>
-		< Content1 id="001" val="1988"> Younger </Content1>
-		< Content1 id="002" val="1982"> Older </Content1>
+		< Content1 id="001" val="1988" total="6" > Younger </Content1>
+		< Content1 id="002" val="1982" total="0" > Older </Content1>
 	</div>
 
 	,document.getElementById('root1')
